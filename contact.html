@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact Us — CAPDI</title>
+    <link rel="stylesheet" href="styles/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <img src="Pics/images.jpg" alt="CAPDI logo" class="logo" />
+          <span class="brand-text">CAPDI</span>
+        </div>
+        <nav class="main-nav">
+          <a href="index.html">Home</a>
+          <a href="index.html#programmes">Programes</a>
+          <a href="#donate">Donate</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="#about">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container contact-page">
+      <h1>Contact Us</h1>
+      <p>If you'd like to reach CAPDI, you can email us or send a WhatsApp message — both open your mail app or WhatsApp directly.</p>
+
+      <div class="contact-actions">
+        <a class="btn email" href="mailto:info@capdi.org?subject=Contact%20from%20website&body=Hello%20CAPDI,%0A%0AI%20would%20like%20to%20inquire%20about..." title="Email CAPDI">📧 Email us</a>
+
+        <a class="btn whatsapp" href="https://wa.me/256700000000?text=Hello%20CAPDI%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20programmes." target="_blank" rel="noopener" title="Message on WhatsApp">💬 WhatsApp</a>
+
+        <p class="muted">Replace the email address and WhatsApp number in <code>contact.html</code> with the real contact details.</p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>© <span id="year"></span> CAPDI. All rights reserved.</div>
+        <div>Caring for persons with disabilities</div>
+      </div>
+    </footer>
+
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </body>
+</html>

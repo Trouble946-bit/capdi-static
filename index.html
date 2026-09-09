@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CAPDI — Caring for persons with disabilities</title>
+    <link rel="stylesheet" href="styles/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <img src="Pics/images.jpg" alt="CAPDI logo" class="logo" />
+          <span class="brand-text">CAPDI</span>
+        </div>
+        <nav class="main-nav">
+          <a href="index.html">Home</a>
+          <a href="index.html#programmes">Programes</a>
+          <a href="#donate">Donate</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="#about">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" style="background-image: url('Pics/home.jpg')">
+      <div class="hero-inner container">
+        <h1>Welcome to CAPDI — Caring for Persons with Disabilities</h1>
+        <p>Programs, training and advocacy that empower people with disabilities and their communities.</p>
+      </div>
+    </section>
+
+    <main>
+      <section id="programmes" class="container programmes">
+        <div class="content-panel">
+          <h2>Our Programmes</h2>
+          <div class="grid">
+          <article class="card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1542345812-d98b5cd6cf98?w=800&q=60&auto=format&fit=crop')">
+              <div class="image-overlay">
+                <div class="overlay-title">Empowering Women &amp; Girls with Disabilities — Nsanje 2025-26</div>
+              </div>
+            </div>
+            <div class="card-body">
+              <p>With support from the Women &amp; Girls Fund/FAWEMA, CAPDI is training and mentoring women and girls with disabilities to claim their rights.</p>
+              <a class="read-more" href="#">Read more</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=800&q=60&auto=format&fit=crop')">
+              <div class="image-overlay">
+                <div class="overlay-title">Digital Literacy for Rural Youth</div>
+              </div>
+            </div>
+            <div class="card-body">
+              <p>Empowering young people in rural communities with essential digital skills for the 21st century.</p>
+              <a class="read-more" href="#">Read more</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1529079151283-8e3f3c3f6e4b?w=800&q=60&auto=format&fit=crop')">
+              <div class="image-overlay">
+                <div class="overlay-title">Flower Vase Making</div>
+              </div>
+            </div>
+            <div class="card-body">
+              <p>This initiative trains women in the production of flower vases, promoting entrepreneurship and sustainable income generation.</p>
+              <a class="read-more" href="#">Read more</a>
+            </div>
+          </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured programmes (larger, centered titles) -->
+      <section class="container featured py-12">
+        <div class="content-panel">
+          <div class="grid featured-grid">
+          <div class="featured-col">
+            <img src="https://images.unsplash.com/photo-1542345812-d98b5cd6cf98?w=200&q=60&auto=format&fit=crop" alt="Empowering Women" />
+            <h3>Empowering Women &amp; Girls with Disabilities — Nsanje 2025-26</h3>
+            <p>With support from the Women &amp; Girls Fund/FAWEMA, CAPDI is training and mentoring women and girls with disabilities to claim their rights, influence local policy and access services.</p>
+            <a class="read-more" href="#">Read more</a>
+          </div>
+          <div class="featured-col">
+            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=200&q=60&auto=format&fit=crop" alt="Digital Literacy" />
+            <h3>Digital Literacy for Rural Youth</h3>
+            <p>Empowering young people in rural communities with essential digital skills for the 21st century. This initiative provides comprehensive computer training and mentoring.</p>
+            <a class="read-more" href="#">Read more</a>
+          </div>
+          <div class="featured-col">
+            <img src="https://images.unsplash.com/photo-1529079151283-8e3f3c3f6e4b?w=200&q=60&auto=format&fit=crop" alt="Flower Vase Making" />
+            <h3>Flower Vase Making</h3>
+            <p>This initiative trains women in the production of flower vases, promoting entrepreneurship, craft skills and sustainable income generation.</p>
+            <a class="read-more" href="#">Read more</a>
+          </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>© <span id="year"></span> CAPDI. All rights reserved.</div>
+        <div>Caring for persons with disabilities</div>
+      </div>
+    </footer>
+    <!-- Floating action buttons -->
+    <button id="cookie-btn" class="fab left" aria-label="Cookie preferences">🍪</button>
+    <div id="chat-fab" class="fab right" role="button" aria-label="Contact us">
+      ✈️
+      <div id="hello-bubble" class="hello-bubble" hidden>👋 Hello!</div>
+    </div>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const chat = document.getElementById('chat-fab');
+      const bubble = document.getElementById('hello-bubble');
+      chat.addEventListener('click', () => {
+        if (bubble.hasAttribute('hidden')) {
+          bubble.removeAttribute('hidden');
+          setTimeout(()=> bubble.setAttribute('hidden',''), 3000);
+        } else {
+          bubble.setAttribute('hidden','');
+        }
+      });
+    </script>
+  </body>
+</html>
