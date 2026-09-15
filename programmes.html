@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Programmes - CAPDI</title>
+    <link rel="stylesheet" href="styles/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <span class="brand-text">CAPDI</span>
+        </div>
+        <nav class="main-nav">
+          <a href="index.html">Home</a>
+          <a href="programmes.html">Programmes</a>
+          
+          <a href="contact.html">Contact Us</a>
+          <a href="#about">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="container programmes" id="programmes-list">
+        <div class="content-panel">
+          <h2>Our Programmes</h2>
+          <p class="programmes-intro">Programs, training and advocacy that empower people with disabilities and their communities. Click a programme to read the full details.</p>
+
+          <div class="programmes-grid">
+            <div class="programme-card reveal">
+              <img class="programme-thumb" src="Pics/Capdi 1.jpg" alt="Empowering women">
+              <h4>Empowering Women &amp; Girls with Disabilities — Nsanje 2025-26</h4>
+              <p>With support from the Women & Girls Fund/FAWEMA, CAPDI is training and mentoring women and girls with disabilities to claim their rights, influence local decisions, and hold service-providers accountable. The programme pairs inclusive policy campaigns with community awareness, male-ally engagement, and evidence-based advocacy to make health, education, protection, and leadership spaces safe and accessible for all.</p>
+            </div>
+
+            <div class="programme-card reveal">
+              <img class="programme-thumb" src="Pics/home.jpg" alt="Digital literacy">
+              <h4>Digital Literacy for Rural Youth</h4>
+              <p>Empowering young people in rural communities with essential digital skills for the 21st century. This initiative provides comprehensive computer training, internet literacy, and technology access to bridge the digital divide and create economic opportunities.</p>
+              <a class="read-more" href="#digital-literacy">Read more</a>
+            </div>
+
+            <div class="programme-card reveal">
+              <img class="programme-thumb" src="Pics/images.jpg" alt="Flower vase making">
+              <h4>Flower Vase Making</h4>
+              <p>Artisan Skills for Women
+This initiative trains women in the production of flower vases, promoting entrepreneurship and sustainable income generation.</p>
+
+<p>
+Teach women vase-making skills.
+Enable micro-business creation.
+Support local economic empowerment.</p>
+              <a class="read-more" href="#flower-vase">Read more</a>
+            </div>
+
+            <div class="programme-card reveal">
+              <img class="programme-thumb" src="Pics/home.jpg" alt="Soap making">
+              <h4>Soap Making Training</h4>
+              <p>Community Hygiene & Safety
+Supported by the U.S. Embassy and CDC guidance, this project trained communities in soap and mask production, improving hygiene and COVID-19 preparedness for 9,000 marginalized individuals.
+
+Key Objectives
+Train communities in soap and mask production.
+Improve hygiene practices.
+Reduce COVID-19 transmission risk.</p>
+              <a class="read-more" href="#soap-making">Read more</a>
+            </div>
+          </div>
+
+          
+
+          
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>© <span id="year"></span> CAPDI. All rights reserved.</div>
+        <div>Caring for persons with disabilities</div>
+      </div>
+    </footer>
+
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script>
+      // Reveal on scroll for programmes page
+      (function(){
+        const obs = new IntersectionObserver((entries)=>{
+          entries.forEach(e=>{
+            if(e.isIntersecting) e.target.classList.add('is-visible');
+          });
+        },{threshold:0.12});
+        document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+      })();
+    </script>
+    <a id="contact-bubble" class="fab mid" href="contact.html" aria-label="Donate" style="background-image:url('Pics/Donate.jpg')"></a>
+  </body>
+</html>

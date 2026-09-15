@@ -4,70 +4,83 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>CAPDI — Caring for persons with disabilities</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
+    <!-- color overrides moved to styles/styles.css -->
   </head>
   <body>
     <header class="site-header">
       <div class="container">
         <div class="brand">
-          <img src="Pics/images.jpg" alt="CAPDI logo" class="logo" />
-          <span class="brand-text">CAPDI</span>
+          <a href="index.html" class="brand-link"><span class="brand-text">CAPDI</span></a>
         </div>
         <nav class="main-nav">
           <a href="index.html">Home</a>
-          <a href="index.html#programmes">Programes</a>
-          <a href="#donate">Donate</a>
+          <a href="programmes.html">Programmes</a>
+          
           <a href="contact.html">Contact Us</a>
-          <a href="#about">About</a>
+          <a href="about.html">About</a>
         </nav>
       </div>
     </header>
 
-    <section class="hero" style="background-image: url('Pics/home.jpg')">
-      <div class="hero-inner container">
-        <h1>Welcome to CAPDI — Caring for Persons with Disabilities</h1>
-        <p>Programs, training and advocacy that empower people with disabilities and their communities.</p>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-box" style="background-image: url('Pics/home.jpg')">
+          <div class="hero-inner">
+            <h1 class="bright-orange">Welcome to CAPDI — Caring for Persons with Disabilities</h1>
+            <p>Programs, training and advocacy that empower people with disabilities and their communities.</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <main>
+      <section id="about" class="container about-section">
+        <div class="content-panel">
+          <h2>About Our Organisation</h2>
+          <p>At CAPDI (Caring for Persons with Disabilities), our mission is to systematically promote inclusiveness among socially excluded groups, empowering them to fully participate at every level of the decision-making process. By breaking down deep-rooted structural barriers across Malawi, we champion inclusive primary education, build accessible infrastructure like ramps and specialized facilities, and translate vital educational materials into Braille formats. Through strategic community advocacy and collaborative partnerships with local leaders, we actively dismantle social stigma to secure equal access to health, education, and justice frameworks, ensuring that every individual has the opportunity to thrive with dignity.</p>
+        </div>
+      </section>
       <section id="programmes" class="container programmes">
         <div class="content-panel">
           <h2>Our Programmes</h2>
           <div class="grid">
-          <article class="card">
-            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1542345812-d98b5cd6cf98?w=800&q=60&auto=format&fit=crop')">
+          <article class="card reveal">
+            <div class="card-image" style="background-image: url('Pics/Capdi 1.jpg')">
               <div class="image-overlay">
                 <div class="overlay-title">Empowering Women &amp; Girls with Disabilities — Nsanje 2025-26</div>
               </div>
             </div>
             <div class="card-body">
               <p>With support from the Women &amp; Girls Fund/FAWEMA, CAPDI is training and mentoring women and girls with disabilities to claim their rights.</p>
-              <a class="read-more" href="#">Read more</a>
+              <a class="read-more" href="programmes.html#empowering-women">Read more</a>
             </div>
           </article>
 
-          <article class="card">
-            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=800&q=60&auto=format&fit=crop')">
+          <article class="card reveal">
+            <div class="card-image" style="background-image: url('Pics/home.jpg')">
               <div class="image-overlay">
                 <div class="overlay-title">Digital Literacy for Rural Youth</div>
               </div>
             </div>
             <div class="card-body">
               <p>Empowering young people in rural communities with essential digital skills for the 21st century.</p>
-              <a class="read-more" href="#">Read more</a>
+              <a class="read-more" href="programmes.html#digital-literacy">Read more</a>
             </div>
           </article>
 
-          <article class="card">
-            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1529079151283-8e3f3c3f6e4b?w=800&q=60&auto=format&fit=crop')">
+          <article class="card reveal">
+            <div class="card-image" style="background-image: url('Pics/images.jpg')">
               <div class="image-overlay">
                 <div class="overlay-title">Flower Vase Making</div>
               </div>
             </div>
             <div class="card-body">
               <p>This initiative trains women in the production of flower vases, promoting entrepreneurship and sustainable income generation.</p>
-              <a class="read-more" href="#">Read more</a>
+              <a class="read-more" href="programmes.html#flower-vase">Read more</a>
             </div>
           </article>
           </div>
@@ -79,22 +92,22 @@
         <div class="content-panel">
           <div class="grid featured-grid">
           <div class="featured-col">
-            <img src="https://images.unsplash.com/photo-1542345812-d98b5cd6cf98?w=200&q=60&auto=format&fit=crop" alt="Empowering Women" />
+            <img src="Pics/Capdi 1.jpg" alt="Empowering Women" />
             <h3>Empowering Women &amp; Girls with Disabilities — Nsanje 2025-26</h3>
             <p>With support from the Women &amp; Girls Fund/FAWEMA, CAPDI is training and mentoring women and girls with disabilities to claim their rights, influence local policy and access services.</p>
-            <a class="read-more" href="#">Read more</a>
+            <a class="read-more" href="programmes.html#empowering-women">Read more</a>
           </div>
           <div class="featured-col">
-            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=200&q=60&auto=format&fit=crop" alt="Digital Literacy" />
+            <img src="Pics/home.jpg" alt="Digital Literacy" />
             <h3>Digital Literacy for Rural Youth</h3>
             <p>Empowering young people in rural communities with essential digital skills for the 21st century. This initiative provides comprehensive computer training and mentoring.</p>
-            <a class="read-more" href="#">Read more</a>
+              <a class="read-more" href="programmes.html#digital-literacy">Read more</a>
           </div>
           <div class="featured-col">
-            <img src="https://images.unsplash.com/photo-1529079151283-8e3f3c3f6e4b?w=200&q=60&auto=format&fit=crop" alt="Flower Vase Making" />
+            <img src="Pics/images.jpg" alt="Flower Vase Making" />
             <h3>Flower Vase Making</h3>
             <p>This initiative trains women in the production of flower vases, promoting entrepreneurship, craft skills and sustainable income generation.</p>
-            <a class="read-more" href="#">Read more</a>
+            <a class="read-more" href="programmes.html#flower-vase">Read more</a>
           </div>
           </div>
         </div>
@@ -113,6 +126,7 @@
       ✈️
       <div id="hello-bubble" class="hello-bubble" hidden>👋 Hello!</div>
     </div>
+    <a id="contact-bubble" class="fab mid" href="contact.html" aria-label="Donate" style="background-image:url('Pics/Donate.jpg')"></a>
 
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
@@ -126,6 +140,23 @@
           bubble.setAttribute('hidden','');
         }
       });
+      // Reveal on scroll
+      (function(){
+        const obs = new IntersectionObserver((entries)=>{
+          entries.forEach(e=>{
+            if(e.isIntersecting) e.target.classList.add('is-visible');
+          });
+        },{threshold:0.15});
+        document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+      })();
+    </script>
+    <script>
+      (function(){
+        const page = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.main-nav a').forEach(a=>{
+          if(a.getAttribute('href') === page) a.classList.add('active');
+        });
+      })();
     </script>
   </body>
 </html>

@@ -1,48 +1,229 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Contact Us — CAPDI</title>
-    <link rel="stylesheet" href="styles/styles.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container">
-        <div class="brand">
-          <img src="Pics/images.jpg" alt="CAPDI logo" class="logo" />
-          <span class="brand-text">CAPDI</span>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - CAPDI</title>
+  <link rel="preload" href="styles/styles.css?v=3" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles/styles.css?v=3"></noscript>
+  <style>
+    .form-buttons-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .form-buttons-group .submit-button {
+      width: 100%;
+      padding: 1rem;
+      background: #8B5A2B;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .form-buttons-group .submit-button:hover {
+      background: #5A3F1A;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .form-buttons-group .email-style {
+      background: #5A7A9F;
+    }
+
+    .form-buttons-group .email-style:hover {
+      background: #3f5570;
+    }
+
+    @media (max-width: 768px) {
+      .form-buttons-group {
+        grid-template-columns: 1fr;
+        justify-items: center; /* center the buttons */
+      }
+      .form-buttons-group .submit-button {
+        width: auto;
+        min-width: 220px;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+    /* moved .maroon-text rules into styles/styles.css */
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <a href="index.html" class="brand-link"><span class="brand-text">CAPDI</span></a>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="programmes.html">Programmes</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header">
+    <div class="header-content">
+      <div>
+        <h1 class="maroon-text">Get In Touch</h1>
+        <p class="maroon-text">Reach out to CAPDI for programmes, partnerships, or support.</p>
+      </div>
+      <div><!-- spacer column aligns with contact panel --></div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Contact Information</h2>
+          <div class="info-box">
+            <h3>📍 Location</h3>
+            <p>Lilongwe, Malawi</p>
+          </div>
+          <div class="info-box">
+            <h3>📞 Phone</h3>
+            <p>+265 01 750 463</p>
+          </div>
+          <div class="info-box">
+            <h3>✉️ Email</h3>
+            <p>info@capdi.org</p>
+          </div>
+          
+          <div class="map-container" aria-label="Location map">
+            <iframe class="map-frame" src="https://www.google.com/maps?q=-15.784191791812235,35.015120409534035(CAPDI)&z=17&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p class="map-caption">CAPDI — Lilongwe, Malawi</p>
+          </div>
         </div>
-        <nav class="main-nav">
-          <a href="index.html">Home</a>
-          <a href="index.html#programmes">Programes</a>
-          <a href="#donate">Donate</a>
-          <a href="contact.html">Contact Us</a>
-          <a href="#about">About</a>
-        </nav>
+
+        <div class="content-panel contact-panel">
+          <form class="contact-form">
+          <h2>Contact Us</h2>
+          <p>Please use this form for general questions about CAPDI. For programme enquiries or specific requests, visit the programmes page or use the contact details at left.</p>
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number (Optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="+265 xxx xxx xxx" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email (Optional)</label>
+            <input type="email" id="email" name="email" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Ask us anything about the lodge, rooms, or services..."></textarea>
+          </div>
+          <div class="form-buttons-group">
+            <button type="button" id="whatsapp-btn" class="submit-button">Send via WhatsApp</button>
+            <button type="button" id="email-btn" class="submit-button email-style">Send via Email</button>
+          </div>
+          </form>
+        </div>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <main class="container contact-page">
-      <h1>Contact Us</h1>
-      <p>If you'd like to reach CAPDI, you can email us or send a WhatsApp message — both open your mail app or WhatsApp directly.</p>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 CAPDI. All rights reserved.</p>
+      <p>Community Action & Programmes for Development Initiatives.</p>
+      <p style="margin-top: 1rem; opacity: 0.8;"><a href="admin.html" style="color: inherit; text-decoration: underline;">Owner Portal</a></p>
+    </div>
+  </footer>
 
-      <div class="contact-actions">
-        <a class="btn email" href="mailto:info@capdi.org?subject=Contact%20from%20website&body=Hello%20CAPDI,%0A%0AI%20would%20like%20to%20inquire%20about..." title="Email CAPDI">📧 Email us</a>
+  <script>
+    // Contact form (general inquiries)
+    document.addEventListener('DOMContentLoaded', function() {
+      function getFormData() {
+        return {
+          name: document.getElementById('name').value,
+          phone: document.getElementById('phone').value,
+          email: document.getElementById('email').value,
+          message: document.getElementById('message').value
+        };
+      }
 
-        <a class="btn whatsapp" href="https://wa.me/256700000000?text=Hello%20CAPDI%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20programmes." target="_blank" rel="noopener" title="Message on WhatsApp">💬 WhatsApp</a>
+      function validateForm(data) {
+        if (!data.name || !data.message) {
+          alert('Please provide your name and a message.');
+          return false;
+        }
+        return true;
+      }
 
-        <p class="muted">Replace the email address and WhatsApp number in <code>contact.html</code> with the real contact details.</p>
-      </div>
-    </main>
+          const whatsappBtn = document.getElementById('whatsapp-btn');
+      if (whatsappBtn) {
+        whatsappBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const data = getFormData();
+          if (!validateForm(data)) return;
+          const phoneNumber = '26501750463';
+          let whatsappMessage = `*CONTACT - CAPDI*\n\n`;
+          whatsappMessage += `*Customer:* ${data.name}\n`;
+          if (data.phone) whatsappMessage += `*Phone:* ${data.phone}\n`;
+          if (data.email) whatsappMessage += `*Email:* ${data.email}\n`;
+          whatsappMessage += `\n*Message:*\n${data.message}`;
 
-    <footer class="site-footer">
-      <div class="container">
-        <div>© <span id="year"></span> CAPDI. All rights reserved.</div>
-        <div>Caring for persons with disabilities</div>
-      </div>
-    </footer>
+          const encodedMessage = encodeURIComponent(whatsappMessage);
+          const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+          window.open(whatsappURL, '_blank');
+        });
+      }
 
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  </body>
+          const emailBtn = document.getElementById('email-btn');
+      if (emailBtn) {
+        emailBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const data = getFormData();
+          if (!validateForm(data)) return;
+
+          let emailBody = `Customer Name: ${data.name}\n`;
+          if (data.phone) emailBody += `Phone: ${data.phone}\n`;
+          if (data.email) emailBody += `Email: ${data.email}\n`;
+          emailBody += `\nMessage:\n${data.message || 'None'}`;
+
+          const recipientEmail = 'info@capdi.org';
+          const subject = `Contact from ${data.name} - CAPDI`;
+          const encodedBody = encodeURIComponent(emailBody);
+          const encodedSubject = encodeURIComponent(subject);
+
+          const mailtoURL = `mailto:${recipientEmail}?subject=${encodedSubject}&body=${encodedBody}`;
+          window.location.href = mailtoURL;
+        });
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggle = document.querySelector('.nav-toggle');
+      const navContainer = document.querySelector('.site-header .container');
+      if (toggle && navContainer) {
+        toggle.addEventListener('click', function() {
+          const isOpen = navContainer.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', isOpen);
+        });
+      }
+    });
+  </script>
+  <script>
+    (function(){
+      const page = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.main-nav a').forEach(a=>{
+        if(a.getAttribute('href') === page) a.classList.add('active');
+      });
+    })();
+  </script>
+</body>
 </html>

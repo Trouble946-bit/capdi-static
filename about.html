@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>About — CAPDI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+  </head>
+  <body class="about-page">
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <a href="index.html" class="brand-link"><span class="brand-text">CAPDI</span></a>
+        </div>
+        <nav class="main-nav">
+          <a href="index.html">Home</a>
+          <a href="programmes.html">Programmes</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="about.html">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-box">
+          <div class="hero-inner">
+            <h1>About Our Organisation</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <section id="about" class="container about-section">
+        <div class="content-panel">
+          <h2>About Our Organisation</h2>
+          <p>At CAPDI (Caring for Persons with Disabilities), our mission is to systematically promote inclusiveness among socially excluded groups, empowering them to fully participate at every level of the decision-making process. By breaking down deep-rooted structural barriers across Malawi, we champion inclusive primary education, build accessible infrastructure like ramps and specialized facilities, and translate vital educational materials into Braille formats. Through strategic community advocacy and collaborative partnerships with local leaders, we actively dismantle social stigma to secure equal access to health, education, and justice frameworks, ensuring that every individual has the opportunity to thrive with dignity.</p>
+
+          <details class="collapsible">
+            <summary>Mission</summary>
+            <p>CAPDI is dedicated to advocating for and empowering women and girls with disabilities through education, awareness, and policy change, ensuring their voices are heard and their rights are upheld at local and national levels.</p>
+            <img src="https://capdimw.org/wp-content/uploads/2026/06/images-1.png" alt="Mission image" style="max-width:220px;margin-top:8px;"/>
+          </details>
+
+          <details class="collapsible">
+            <summary>Vision</summary>
+            <p>To create an inclusive and empowering society where marginalized women and girls, particularly those with disabilities, enjoy equal rights, opportunities, and participation in all aspects of life.</p>
+            <img src="https://capdimw.org/wp-content/uploads/2026/06/download-1.png" alt="Vision image" style="max-width:220px;margin-top:8px;"/>
+          </details>
+
+          <details class="collapsible">
+            <summary>Values</summary>
+            <p>Inclusion, Equality, Empowerment, Advocacy, Accountability, Collaboration &amp; Respect for human rights.</p>
+            <img src="https://capdimw.org/wp-content/uploads/2026/06/download-5.png" alt="Values image" style="max-width:220px;margin-top:8px;"/>
+          </details>
+
+          <details class="collapsible">
+            <summary>Our Story</summary>
+            <p>Caring for Persons with Disabilities (CAPDI) was founded in November 2004 by advocates committed to disability inclusion. Registered under the Trustees Incorporation Act (No. TR/INC: 2729), CAPDI promotes the rights and wellbeing of persons with disabilities, especially women and girls, through advocacy, empowerment, and service delivery.</p>
+            <img src="https://capdimw.org/wp-content/uploads/2026/06/download-6-1.png" alt="Our story image" style="max-width:220px;margin-top:8px;"/>
+          </details>
+
+          <details class="collapsible">
+            <summary>Operation Bases</summary>
+            <p>The organization serves communities across Malawi. Its secretariat is in Bangwe Township, Blantyre district, and it maintains a branch in Bangula, Nsanje district.</p>
+            <img src="https://capdimw.org/wp-content/uploads/2026/06/download-9-1.png" alt="Operation bases image" style="max-width:220px;margin-top:8px;"/>
+          </details>
+
+          <details class="collapsible">
+            <summary>Our Team</summary>
+            <p>Our executive team comprises highly qualified professionals with expertise in special needs education, language science, public health, accounting, and community development. They bring decades of institutional experience to deliver inclusive programming and gender-equitable community initiatives.</p>
+          </details>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>© <span id="year"></span> CAPDI. All rights reserved.</div>
+        <div>Caring for persons with disabilities</div>
+      </div>
+    </footer>
+
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script>
+      (function(){
+        const page = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.main-nav a').forEach(a=>{
+          if(a.getAttribute('href') === page) a.classList.add('active');
+        });
+      })();
+    </script>
+  </body>
+</html>
