@@ -119,8 +119,8 @@
             <input type="tel" id="phone" name="phone" placeholder="+265 xxx xxx xxx" />
           </div>
           <div class="form-group">
-            <label for="email">Email (Optional)</label>
-            <input type="email" id="email" name="email" />
+            <label for="email">Email (required)</label>
+            <input type="email" id="email" name="email" required aria-required="true" placeholder="you@example.com" />
           </div>
           <div class="form-group">
             <label for="message">Message</label>
@@ -138,9 +138,9 @@
 
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 CAPDI. All rights reserved.</p>
       <p>Community Action & Programmes for Development Initiatives.</p>
-      <p style="margin-top: 1rem; opacity: 0.8;"><a href="admin.html" style="color: inherit; text-decoration: underline;">Owner Portal</a></p>
+      <p>&copy; 2025 CAPDI. All rights reserved.</p>
+
     </div>
   </footer>
 
@@ -157,8 +157,13 @@
       }
 
       function validateForm(data) {
-        if (!data.name || !data.message) {
-          alert('Please provide your name and a message.');
+        if (!data.name || !data.message || !data.email) {
+          alert('Please provide your name, email, and a message.');
+          return false;
+        }
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!re.test(data.email)) {
+          alert('Please enter a valid email address.');
           return false;
         }
         return true;
