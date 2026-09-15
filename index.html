@@ -121,26 +121,10 @@
         <div>Caring for persons with disabilities</div>
       </div>
     </footer>
-    <!-- Floating action buttons -->
-    <button id="cookie-btn" class="fab left" aria-label="Cookie preferences">🍪</button>
-    <div id="chat-fab" class="fab right" role="button" aria-label="Contact us">
-      ✈️
-      <div id="hello-bubble" class="hello-bubble" hidden>👋 Hello!</div>
-    </div>
-    <a id="contact-bubble" class="fab mid" href="contact.html" aria-label="Donate" style="background-image:url('Pics/Donate.jpg')"></a>
+    <!-- Floating action buttons removed -->
 
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
-      const chat = document.getElementById('chat-fab');
-      const bubble = document.getElementById('hello-bubble');
-      chat.addEventListener('click', () => {
-        if (bubble.hasAttribute('hidden')) {
-          bubble.removeAttribute('hidden');
-          setTimeout(()=> bubble.setAttribute('hidden',''), 3000);
-        } else {
-          bubble.setAttribute('hidden','');
-        }
-      });
       // Reveal on scroll
       (function(){
         const obs = new IntersectionObserver((entries)=>{
