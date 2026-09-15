@@ -10,8 +10,9 @@
     <header class="site-header">
       <div class="container">
         <div class="brand">
-          <span class="brand-text">CAPDI</span>
+          <a href="index.html" class="brand-link"><span class="brand-text">CAPDI</span></a>
         </div>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
         <nav class="main-nav">
           <a href="index.html">Home</a>
           <a href="programmes.html">Programmes</a>
@@ -95,6 +96,18 @@ Reduce COVID-19 transmission risk.</p>
         },{threshold:0.12});
         document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
       })();
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const toggle = document.querySelector('.nav-toggle');
+        const navContainer = document.querySelector('.site-header .container');
+        if (toggle && navContainer) {
+          toggle.addEventListener('click', function() {
+            const isOpen = navContainer.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', isOpen);
+          });
+        }
+      });
     </script>
     <a id="contact-bubble" class="fab mid" href="contact.html" aria-label="Donate" style="background-image:url('Pics/Donate.jpg')"></a>
   </body>
