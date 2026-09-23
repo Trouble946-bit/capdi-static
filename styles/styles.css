@@ -7,7 +7,7 @@
 .home {background-color:#f4f6f8}
 .site-bg{background-color:#2f2f2f}
 html, body {height:100%;}
-body{font-family:'Poppins',Inter,Segoe UI,Roboto,Arial,sans-serif;margin:0;color:#fff;line-height:1.35;letter-spacing:-0.01em;background-color:#2f2f2f;background-image: url('Pics/home.jpg'), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=2400&q=80&auto=format&fit=crop');background-size:cover;background-position:center top;background-attachment:fixed}
+body{font-family:'Poppins',Inter,Segoe UI,Roboto,Arial,sans-serif;margin:0;color:#fff;line-height:1.35;letter-spacing:-0.01em;background-color:#2f2f2f;background-image:url('../Pics/home.jpg');background-size:cover;background-position:center top;background-attachment:fixed}
 .container{max-width:var(--container);margin:0 auto;padding:0 18px}
 .site-header{background:rgba(255,255,255,0.98);border-bottom:1px solid #eee;position:relative;z-index:60}
 .site-header .container{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
@@ -153,7 +153,7 @@ p, li {line-height:1.45;letter-spacing:-0.01em}
 .card-image{height:160px;background-size:cover;background-position:center;position:relative}
 .card-body{padding:10px 12px;color:#222}
 .card p{margin:0 0 10px;color:#444}
-.read-more{display:inline-block;color:var(--accent);text-decoration:none}
+.read-more{display:inline-block;color:#9c3d00;text-decoration:none}
 .image-overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.25));display:flex;align-items:flex-end}
 .overlay-title{color:#fff;padding:14px;font-size:18px;line-height:1.2}
 .contact{padding:36px 18px;background:#fafafa}
