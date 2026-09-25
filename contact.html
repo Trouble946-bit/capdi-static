@@ -8,9 +8,6 @@
   <noscript><link rel="stylesheet" href="styles/styles.css?v=3"></noscript>
   <style>
     .form-buttons-group {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
       margin-top: 1.5rem;
     }
 
@@ -33,19 +30,26 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
-    .form-buttons-group .email-style {
-      background: #5A7A9F;
+    .form-status {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
     }
 
-    .form-buttons-group .email-style:hover {
-      background: #3f5570;
+    .form-status.success {
+      background: #e8f5e9;
+      color: #1b5e20;
+      border: 1px solid #c8e6c9;
+    }
+
+    .form-status.error {
+      background: #ffebee;
+      color: #b71c1c;
+      border: 1px solid #ffcdd2;
     }
 
     @media (max-width: 768px) {
-      .form-buttons-group {
-        grid-template-columns: 1fr;
-        justify-items: center; /* center the buttons */
-      }
       .form-buttons-group .submit-button {
         width: auto;
         min-width: 220px;
@@ -103,9 +107,10 @@
         </div>
 
         <div class="content-panel contact-panel">
-          <form class="contact-form">
+          <form class="contact-form" action="send_contact.php" method="post">
           <h2>Contact Us</h2>
           <p>Please use this form for general questions about CAPDI. For programme enquiries or specific requests, visit the programmes page or use the contact details at left.</p>
+          <div id="form-status" class="form-status" style="display: none;"></div>
           <div class="form-group">
             <label for="name">Full Name</label>
             <input type="text" id="name" name="name" required />
@@ -123,8 +128,7 @@
             <textarea id="message" name="message" rows="6" placeholder="Ask us anything about the lodge, rooms, or services..."></textarea>
           </div>
           <div class="form-buttons-group">
-            <button type="button" id="whatsapp-btn" class="submit-button">Send via WhatsApp</button>
-            <button type="button" id="email-btn" class="submit-button email-style">Send via Email</button>
+            <button type="submit" class="submit-button">Send Message</button>
           </div>
           </form>
         </div>
@@ -141,69 +145,21 @@
   </footer>
 
   <script>
-    // Contact form (general inquiries)
     document.addEventListener('DOMContentLoaded', function() {
-      function getFormData() {
-        return {
-          name: document.getElementById('name').value,
-          phone: document.getElementById('phone').value,
-          email: document.getElementById('email').value,
-          message: document.getElementById('message').value
-        };
-      }
+      const params = new URLSearchParams(window.location.search);
+      const status = params.get('status');
+      const statusBox = document.getElementById('form-status');
 
-      function validateForm(data) {
-        if (!data.name || !data.message || !data.email) {
-          alert('Please provide your name, email, and a message.');
-          return false;
+      if (statusBox && status) {
+        if (status === 'success') {
+          statusBox.textContent = 'Thank you. Your message has been sent successfully.';
+          statusBox.className = 'form-status success';
+          statusBox.style.display = 'block';
+        } else if (status === 'error') {
+          statusBox.textContent = 'We could not send your message right now. Please try again.';
+          statusBox.className = 'form-status error';
+          statusBox.style.display = 'block';
         }
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!re.test(data.email)) {
-          alert('Please enter a valid email address.');
-          return false;
-        }
-        return true;
-      }
-
-          const whatsappBtn = document.getElementById('whatsapp-btn');
-      if (whatsappBtn) {
-        whatsappBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          const data = getFormData();
-          if (!validateForm(data)) return;
-          const phoneNumber = '265885494558';
-          let whatsappMessage = `*CONTACT - CAPDI*\n\n`;
-          whatsappMessage += `*Customer:* ${data.name}\n`;
-          if (data.phone) whatsappMessage += `*Phone:* ${data.phone}\n`;
-          if (data.email) whatsappMessage += `*Email:* ${data.email}\n`;
-          whatsappMessage += `\n*Message:*\n${data.message}`;
-
-          const encodedMessage = encodeURIComponent(whatsappMessage);
-          const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-          window.open(whatsappURL, '_blank');
-        });
-      }
-
-          const emailBtn = document.getElementById('email-btn');
-      if (emailBtn) {
-        emailBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          const data = getFormData();
-          if (!validateForm(data)) return;
-
-          let emailBody = `Customer Name: ${data.name}\n`;
-          if (data.phone) emailBody += `Phone: ${data.phone}\n`;
-          if (data.email) emailBody += `Email: ${data.email}\n`;
-          emailBody += `\nMessage:\n${data.message || 'None'}`;
-
-          const recipientEmail = 'info@capdi.org';
-          const subject = `Contact from ${data.name} - CAPDI`;
-          const encodedBody = encodeURIComponent(emailBody);
-          const encodedSubject = encodeURIComponent(subject);
-
-          const mailtoURL = `mailto:${recipientEmail}?subject=${encodedSubject}&body=${encodedBody}`;
-          window.location.href = mailtoURL;
-        });
       }
     });
   </script>
