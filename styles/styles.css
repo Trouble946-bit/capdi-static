@@ -26,7 +26,7 @@ body{font-family:'Poppins',Inter,Segoe UI,Roboto,Arial,sans-serif;margin:0;color
 .site-header{background:#fff;border-bottom:1px solid #eee}
 .main-nav a{margin-left:14px;color:#333;text-decoration:none;font-weight:600}
 .site-header .brand-text{color:var(--pink);}
-.hero{padding:32px 18px}
+.hero{padding:32px 0}
 .hero-box{width:100%;background-size:cover;background-position:center;position:relative;border-radius:12px;overflow:hidden}
 .hero-box::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.35));z-index:0}
 .hero-inner{color:white;padding:28px;position:relative;z-index:1}
@@ -44,6 +44,9 @@ body{font-family:'Poppins',Inter,Segoe UI,Roboto,Arial,sans-serif;margin:0;color
 .programme-card h4{margin:8px 0 12px;font-size:18px;color:#111}
 .programme-card p{flex:1;color:#555;margin-bottom:14px}
 .programme-card a.read-more{color:var(--accent);font-weight:600;text-decoration:none}
+.programme-card .programme-extra p{margin-top:0;color:#555}
+.programme-card .programme-toggle{background:transparent;border:0;color:var(--accent);font-weight:700;padding:0;cursor:pointer;text-decoration:underline;align-self:center}
+.programme-card .programme-toggle:hover{opacity:0.85}
 
 /* Full programme article layout */
 .programme-article{margin:28px 0;padding:20px;background:#fff;border-radius:12px;box-shadow:0 12px 36px rgba(0,0,0,0.06)}
@@ -172,7 +175,16 @@ p, li {line-height:1.45;letter-spacing:-0.01em}
 .contact-form input,.contact-form textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:4px}
 .contact-form button{background:var(--pink);color:#fff;padding:10px 14px;border:0;border-radius:4px;cursor:pointer}
 .site-footer{border-top:1px solid #eee;padding:18px 0}
-.site-footer .container{display:flex;justify-content:space-between;align-items:center}
+.site-footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px 24px}
+.social-rail{position:fixed;left:0;top:42%;z-index:90;display:flex;flex-direction:column;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.social-rail-button{display:grid;place-items:center;width:56px;height:56px;padding:0;border:0;border-radius:0;color:#fff;font-family:Arial,sans-serif;font-size:24px;font-weight:700;line-height:1;text-decoration:none;cursor:pointer;transition:width .18s ease,filter .18s ease}
+.social-rail-button:hover:not(:disabled){width:64px;filter:brightness(1.08)}
+.social-rail-button:focus-visible{position:relative;z-index:1;outline:3px solid #fff;outline-offset:-4px}
+.social-rail-button.facebook{background:#1877f2;font-family:Georgia,serif;font-size:32px}
+.social-rail-button.linkedin{background:#00a6cc;font-size:20px}
+.social-rail-button.instagram{background:#4a4a4a;font-size:20px}
+.social-rail-button:disabled{opacity:1;cursor:not-allowed}
+@media(max-width:640px){body:has(.social-rail) main{padding-left:56px}body:has(.social-rail) .hero{padding-left:56px}.social-rail-button{width:48px;height:48px;font-size:21px}.social-rail-button.facebook{font-size:29px}.social-rail-button.linkedin,.social-rail-button.instagram{font-size:18px}}
 
 /* Floating action buttons */
 .fab{position:fixed;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;background:#1e88e5;box-shadow:0 8px 20px rgba(30,136,229,0.2);border:0;cursor:pointer}
@@ -205,7 +217,7 @@ p, li {line-height:1.45;letter-spacing:-0.01em}
 
 @media(min-width:768px){
   .grid{grid-template-columns:repeat(3,1fr)}
-  .hero{padding:60px 18px}
+  .hero{padding:60px 0}
   .hero-box{padding:40px 0}
   .hero h1{font-size:40px}
   .contact-actions{flex-direction:row}
