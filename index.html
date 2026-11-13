@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <title>CAPDI — Caring for persons with disabilities</title>
     <meta name="description" content="CAPDI empowers persons with disabilities and their communities through inclusive education, advocacy, training and development programmes in Malawi." />
-    <link rel="preload" as="image" href="Pics/home.jpg" fetchpriority="high" />
+    <link rel="preload" as="image" href="Pics/hero-capdi.webp" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -32,7 +33,8 @@
 
     <section class="hero">
       <div class="container">
-        <div class="hero-box" style="background-image: url('Pics/home.jpg')">
+        <div class="hero-box">
+          <img class="hero-image" src="Pics/hero-capdi.webp" alt="CAPDI community programme participants" width="1600" height="700" fetchpriority="high" decoding="async" />
           <div class="hero-inner">
             <h1 class="bright-orange">Welcome to CAPDI — Caring for Persons with Disabilities</h1>
             <p>Programs, training and advocacy that empower people with disabilities and their communities.</p>
@@ -51,19 +53,19 @@
       <section id="programmes" class="container programmes">
         <div class="content-panel">
           <h2>Our Programmes</h2>
-          <div class="grid">
-          <article class="card reveal">
-            <div class="card-image" style="background-image: url('Pics/Capdi 1.jpg')">
-              <div class="image-overlay">
-                <div class="overlay-title">Empowering Women &amp; Girls with Disabilities — Nsanje 2025-26</div>
-              </div>
+          <a class="programme-spotlight" href="empowering-women-girls.html">
+            <div class="programme-spotlight-image">
+              <img src="Pics/empowering-women-girls.webp" alt="Women with disabilities taking part in CAPDI's Nsanje programme" width="960" height="640" loading="lazy" decoding="async" />
+              <span class="programme-spotlight-label">Featured story</span>
             </div>
-            <div class="card-body">
-              <p>With support from the Women &amp; Girls Fund/FAWEMA, CAPDI is training and mentoring women and girls with disabilities to claim their rights.</p>
-              <a class="read-more" href="programmes.html#empowering-women">View women and girls programme</a>
+            <div class="programme-spotlight-copy">
+              <p class="programme-spotlight-kicker">Nsanje <span aria-hidden="true">·</span> 2025–26</p>
+              <h2>Empowering Women and Girls to Lead Change</h2>
+              <p>See how women and girls with disabilities are building advocacy skills and shaping more inclusive communities.</p>
+              <span class="programme-spotlight-link">Discover their story <span aria-hidden="true">→</span></span>
             </div>
-          </article>
-
+          </a>
+          <div class="grid home-programmes-grid">
           <article class="card reveal">
             <div class="card-image" style="background-image: url('Pics/home.jpg')">
               <div class="image-overlay">
@@ -87,32 +89,6 @@
               <a class="read-more" href="programmes.html#flower-vase">View flower vase programme</a>
             </div>
           </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Featured programmes (larger, centered titles) -->
-      <section class="container featured py-12">
-        <div class="content-panel">
-          <div class="grid featured-grid">
-          <div class="featured-col">
-            <img src="Pics/Capdi 1.jpg" alt="Empowering Women" width="244" height="207" loading="lazy" />
-            <h3>Empowering Women &amp; Girls with Disabilities — Nsanje 2025-26</h3>
-            <p>With support from the Women &amp; Girls Fund/FAWEMA, CAPDI is training and mentoring women and girls with disabilities to claim their rights, influence local policy and access services.</p>
-            <a class="read-more" href="programmes.html#empowering-women">View women and girls programme</a>
-          </div>
-          <div class="featured-col">
-            <img src="Pics/home.jpg" alt="Digital Literacy" width="596" height="335" loading="lazy" />
-            <h3>Digital Literacy for Rural Youth</h3>
-            <p>Empowering young people in rural communities with essential digital skills for the 21st century. This initiative provides comprehensive computer training and mentoring.</p>
-              <a class="read-more" href="programmes.html#digital-literacy">View digital literacy programme</a>
-          </div>
-          <div class="featured-col">
-            <img src="Pics/images.jpg" alt="Flower Vase Making" width="1080" height="1022" loading="lazy" />
-            <h3>Flower Vase Making</h3>
-            <p>This initiative trains women in the production of flower vases, promoting entrepreneurship, craft skills and sustainable income generation.</p>
-            <a class="read-more" href="programmes.html#flower-vase">View flower vase programme</a>
-          </div>
           </div>
         </div>
       </section>
@@ -160,5 +136,10 @@
         }
       });
     </script>
+    <aside class="social-rail" aria-label="Social media">
+      <a class="social-rail-button facebook" href="https://web.facebook.com/profile.php?id=100069528111214" target="_blank" rel="noopener noreferrer" aria-label="CAPDI on Facebook">f</a>
+      <button class="social-rail-button linkedin" type="button" disabled title="LinkedIn link coming soon" aria-label="LinkedIn link coming soon">in</button>
+      <button class="social-rail-button instagram" type="button" disabled title="Instagram link coming soon" aria-label="Instagram link coming soon">ig</button>
+    </aside>
   </body>
 </html>

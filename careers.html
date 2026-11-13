@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <title>Careers — CAPDI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+      body { background: #f5f2ee; color: #1d1d1d; }
+      .careers-page { max-width: 1100px; margin: 40px auto; padding: 32px 18px 60px; }
+      .careers-panel { background: #fff; border-radius: 18px; padding: 36px 32px; box-shadow: 0 18px 40px rgba(0,0,0,0.08); }
+      .careers-panel h1 { margin: 0 0 10px; color: #111; }
+      .careers-intro { max-width: 720px; color: #555; margin: 0 0 28px; }
+      .vacancy-list { display: grid; gap: 16px; }
+      .vacancy-card { border: 1px solid #eee; border-left: 4px solid var(--accent); border-radius: 10px; padding: 20px; background: #fffaf7; }
+      .vacancy-card h2 { margin: 0 0 8px; color: #111; font-size: 1.2rem; }
+      .vacancy-card p { color: #444; margin: 0 0 14px; }
+      .vacancy-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+      .vacancy-actions a { color: #fff; background: var(--accent); border-radius: 6px; padding: 10px 14px; font-weight: 700; text-decoration: none; }
+      .vacancy-actions a.secondary { color: var(--accent); background: transparent; border: 1px solid var(--accent); }
+      .vacancy-viewer { margin-top: 28px; padding-top: 24px; border-top: 1px solid #eee; }
+      .vacancy-viewer h2 { color: #111; margin: 0 0 12px; }
+      .vacancy-image { display: block; width: 100%; max-width: 853px; height: auto; margin: 0 auto; border: 1px solid #ddd; border-radius: 8px; }
+      .empty-state { padding: 22px; border: 1px dashed #bbb; border-radius: 10px; color: #555; background: #fafafa; }
+      .capd-careers-link { margin-top: 28px; padding: 20px; border-left: 4px solid var(--accent); background: #fff8f2; border-radius: 8px; }
+      .capd-careers-link h3 { margin: 0 0 8px; color: #111; }
+      .capd-careers-link p { color: #444; }
+      @media (max-width: 640px) {
+        .careers-panel { padding: 24px 18px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand"><a href="index.html" class="brand-link"><span class="brand-text">CAPDI</span></a></div>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        <nav class="main-nav">
+          <a href="index.html">Home</a>
+          <a href="programmes.html">Programmes</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="about.html">About</a>
+          <a href="careers.html">Careers</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="careers-page">
+      <section class="careers-panel" aria-labelledby="careers-heading">
+        <h1 id="careers-heading">Careers at CAPDI</h1>
+        <p class="careers-intro">Find current vacancy announcements from Caring for Persons with Disabilities. View the official notice and download a copy for your records.</p>
+        <div id="vacancy-list" class="vacancy-list"></div>
+        <div id="vacancy-viewer" class="vacancy-viewer" hidden></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>© <span id="year"></span> CAPDI. All rights reserved.</div>
+        <div>Caring for persons with disabilities</div>
+      </div>
+    </footer>
+
+    <script>
+      const vacancies = [
+        { id: 'enumerator-sep-2026', title: 'Call for Enumerators', closingDate: '2 October 2026', image: 'Pics/vacancies/enumerator-sep-2026.jpg' }
+      ];
+      const list = document.getElementById('vacancy-list');
+      const viewer = document.getElementById('vacancy-viewer');
+      const requestedId = new URLSearchParams(window.location.search).get('vacancy');
+
+      function renderVacancyCard(vacancy) {
+        const card = document.createElement('article');
+        card.className = 'vacancy-card';
+        card.innerHTML = '<h2></h2><p></p><div class="vacancy-actions"><a class="open-link">View announcement</a><a class="secondary download-link" download>Download notice</a></div>';
+        card.querySelector('h2').textContent = vacancy.title;
+        card.querySelector('p').textContent = vacancy.closingDate ? 'Application deadline: ' + vacancy.closingDate : 'Official vacancy announcement';
+        card.querySelector('.open-link').href = 'careers.html?vacancy=' + encodeURIComponent(vacancy.id);
+        card.querySelector('.download-link').href = vacancy.image;
+        card.querySelector('.download-link').download = 'CAPDI-Enumerator-Vacancy-September-2026.jpg';
+        return card;
+      }
+
+      const selectedVacancy = vacancies.find(function(vacancy) { return vacancy.id === requestedId; });
+      if (vacancies.length === 0) {
+        list.innerHTML = '<div class="empty-state">There are no current vacancies. Please check back soon.</div>';
+      } else {
+        vacancies.forEach(function(vacancy) { list.appendChild(renderVacancyCard(vacancy)); });
+      }
+
+      if (selectedVacancy) {
+        viewer.hidden = false;
+        viewer.innerHTML = '<h2></h2><img class="vacancy-image"><p><a class="fallback-link" target="_blank" rel="noopener noreferrer">Open image in a new tab</a></p>';
+        viewer.querySelector('h2').textContent = selectedVacancy.title;
+        const announcement = viewer.querySelector('.vacancy-image');
+        announcement.src = selectedVacancy.image;
+        announcement.alt = selectedVacancy.title + ' vacancy announcement';
+        viewer.querySelector('.fallback-link').href = selectedVacancy.image;
+        viewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const navToggle = document.querySelector('.nav-toggle');
+      const navContainer = document.querySelector('.site-header .container');
+      navToggle.addEventListener('click', function() {
+        const isOpen = navContainer.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen);
+      });
+      document.querySelectorAll('.main-nav a').forEach(function(link) {
+        if (link.getAttribute('href') === 'careers.html') link.classList.add('active');
+      });
+    </script>
+    <aside class="social-rail" aria-label="Social media">
+      <a class="social-rail-button facebook" href="https://web.facebook.com/profile.php?id=100069528111214" target="_blank" rel="noopener noreferrer" aria-label="CAPDI on Facebook">f</a>
+      <button class="social-rail-button linkedin" type="button" disabled title="LinkedIn link coming soon" aria-label="LinkedIn link coming soon">in</button>
+      <button class="social-rail-button instagram" type="button" disabled title="Instagram link coming soon" aria-label="Instagram link coming soon">ig</button>
+    </aside>
+  </body>
+</html>

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <title>Empowering Women and Girls with Disabilities — CAPDI</title>
     <link rel="stylesheet" href="styles/styles.css">
     <style>
@@ -92,21 +93,92 @@
         text-decoration: underline;
       }
       .programmes-grid .programme-icon {
+        position: relative;
+        isolation: isolate;
         display: grid;
         place-items: center;
         width: 84px;
         height: 84px;
         margin: 0 auto 12px;
         border-radius: 24px;
-        background: #fff1e8;
-        font-size: 2.8rem;
-        line-height: 1;
+        background: linear-gradient(145deg, #fff0e5, #ffe0cf);
+        color: #d95516;
+        box-shadow: 0 10px 24px rgba(205, 91, 39, .16);
+        animation: programme-icon-float 4s ease-in-out infinite;
+        transition: transform 240ms ease, box-shadow 240ms ease;
       }
-      .programmes-grid .programme-card:nth-child(2n) .programme-icon {
-        background: #ffe9f2;
+      .programmes-grid .programme-icon::before {
+        position: absolute;
+        z-index: -1;
+        inset: -5px;
+        border: 1px solid currentColor;
+        border-radius: 28px;
+        content: "";
+        opacity: .18;
+        animation: programme-icon-orbit 12s linear infinite;
+      }
+      .programmes-grid .programme-icon svg {
+        width: 44px;
+        height: 44px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2.2;
+        transition: transform 240ms ease;
+      }
+      .programmes-grid .programme-card:hover .programme-icon,
+      .programmes-grid .programme-card:focus-within .programme-icon {
+        transform: translateY(-4px) rotate(-3deg);
+        box-shadow: 0 16px 30px rgba(205, 91, 39, .24);
+      }
+      .programmes-grid .programme-card:hover .programme-icon svg,
+      .programmes-grid .programme-card:focus-within .programme-icon svg {
+        transform: scale(1.08);
+      }
+      .programmes-grid .programme-card:nth-child(3n + 2) .programme-icon {
+        background: linear-gradient(145deg, #e6f8f7, #c8efeb);
+        color: #087c80;
+        box-shadow: 0 10px 24px rgba(8, 124, 128, .15);
       }
       .programmes-grid .programme-card:nth-child(3n) .programme-icon {
-        background: #e8f5f1;
+        background: linear-gradient(145deg, #f8eafa, #f0d7f1);
+        color: #9850a3;
+        box-shadow: 0 10px 24px rgba(152, 80, 163, .16);
+      }
+      .programmes-grid .programme-card:nth-child(4n) .programme-icon {
+        background: linear-gradient(145deg, #eef0ff, #dce0ff);
+        color: #4b5bc0;
+        box-shadow: 0 10px 24px rgba(75, 91, 192, .16);
+      }
+      .programmes-grid .programme-card:nth-child(5n) .programme-icon {
+        background: linear-gradient(145deg, #fff4d8, #ffe9aa);
+        color: #a76a00;
+        box-shadow: 0 10px 24px rgba(167, 106, 0, .16);
+      }
+      .programmes-grid .programme-card:nth-child(7n) .programme-icon {
+        background: linear-gradient(145deg, #ffe8ee, #ffd2df);
+        color: #c13c69;
+        box-shadow: 0 10px 24px rgba(193, 60, 105, .16);
+      }
+      @keyframes programme-icon-float {
+        0%, 100% { translate: 0 0; }
+        50% { translate: 0 -5px; }
+      }
+      @keyframes programme-icon-orbit {
+        to { rotate: 360deg; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .programmes-grid .programme-icon,
+        .programmes-grid .programme-icon::before {
+          animation: none;
+        }
+        .programmes-grid .programme-card:hover .programme-icon {
+          transform: none;
+        }
+        .programmes-grid .programme-card:hover .programme-icon svg {
+          transform: none;
+        }
       }
       @media (max-width: 800px) {
         .story-page .story-grid {
@@ -116,6 +188,91 @@
       @media (max-width: 640px) {
         .story-page .content-panel {
           padding: 24px 18px;
+        }
+      }
+      .programme-details-dialog {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        max-height: none;
+        margin: 0;
+        padding: 24px;
+        border: 0;
+        overflow: auto;
+        background: transparent;
+      }
+      .programme-details-dialog[open] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .programme-details-dialog::backdrop {
+        background: rgba(15, 20, 28, 0.68);
+        backdrop-filter: blur(4px);
+      }
+      .programme-details-card {
+        position: relative;
+        width: min(100%, 680px);
+        max-height: min(78vh, 760px);
+        overflow: auto;
+        padding: 36px;
+        border: 1px solid rgba(255,255,255,.7);
+        border-radius: 20px;
+        background: #fff;
+        color: #1a1a1a;
+        box-shadow: 0 24px 80px rgba(0,0,0,.3);
+      }
+      .programme-details-card h2 {
+        margin: 0 44px 20px 0;
+        color: #111;
+        font-size: clamp(1.35rem, 3vw, 1.8rem);
+        line-height: 1.25;
+      }
+      .programme-details-card p,
+      .programme-details-card li {
+        color: #333;
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+      .programme-details-card p:last-child {
+        margin-bottom: 0;
+      }
+      .programme-details-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        border: 0;
+        border-radius: 50%;
+        background: #f3eee9;
+        color: #30251e;
+        font-size: 1.7rem;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .programme-details-close:hover {
+        background: #ffe3d3;
+      }
+      .programme-details-close:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 2px;
+      }
+      @media (max-width: 640px) {
+        .programme-details-dialog {
+          padding: 16px;
+        }
+        .programme-details-card {
+          padding: 28px 22px;
+          border-radius: 16px;
+        }
+        .programme-details-close {
+          top: 10px;
+          right: 10px;
         }
       }
     </style>
@@ -140,12 +297,27 @@
       <section class="container programmes" id="programmes-list">
         <a class="back-link" href="programmes.html">← Back to Programmes</a>
         <div class="content-panel">
-          <h2>Empowering Women and Girls with Disabilities to Lead Change in Nsanje</h2>
-          <p class="programmes-intro">Nsanje District, Malawi | August 2025 – July 2026</p>
+          <a class="programme-spotlight story-spotlight" href="#story-highlights">
+            <div class="programme-spotlight-image">
+              <img src="Pics/empowering-women-girls.webp" alt="Women with disabilities taking part in CAPDI's Nsanje programme" width="960" height="640" fetchpriority="high" decoding="async" />
+              <span class="programme-spotlight-label">Nsanje, Malawi · 2025–26</span>
+            </div>
+            <div class="programme-spotlight-copy">
+              <p class="programme-spotlight-kicker">Advocacy · Gender equality · Inclusion</p>
+              <h1>Empowering women and girls to lead change.</h1>
+              <p>Thirty women and girls with disabilities are building confidence, claiming their rights and helping shape more inclusive communities.</p>
+              <span class="programme-spotlight-link">Explore the impact <span aria-hidden="true">↓</span></span>
+            </div>
+          </a>
 
+          <div class="story-highlights-heading" id="story-highlights">
+            <p class="programme-spotlight-kicker">A collective impact</p>
+            <h2>Change happens when every voice is heard.</h2>
+            <p>Explore the people, partnerships and practical steps behind the programme.</p>
+          </div>
           <div class="programmes-grid">
             <div class="programme-card reveal">
-              <div class="programme-icon" role="img" aria-label="Women and girls raising their voices">📣</div>
+              <div class="programme-icon" role="img" aria-label="Women and girls raising their voices"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 20h8l21-10v28L15 28H7a4 4 0 0 1 0-8Z"/><path d="m15 28 4 12h8l-5-9M41 18a8 8 0 0 1 0 12"/></svg></div>
               <h4>Project overview</h4>
               <p>CAPDI is strengthening the advocacy capacity of women and girls with disabilities in Nsanje.</p>
               <div class="programme-extra" hidden><p>Women and girls with disabilities in rural communities often face multiple barriers to participating in decisions that affect their lives. Limited access to information, social and family barriers, inaccessible services and few opportunities to engage decision-makers can leave their voices unheard. In response to these challenges, <em>Caring for Persons with Disabilities (CAPDI)</em> implemented the project <em>“Empowering Women and Girls with Disabilities: Advocacy for Gender Equality and Inclusion”</em> in Nsanje District, with support from the <em>Women and Girls Fund (WGF)</em>.</p><p>The project focused on strengthening the advocacy capacity of women and girls with disabilities while creating opportunities for them to engage community leaders, government authorities and service providers on issues affecting their rights, participation and access to services, including education, health and justice.</p></div>
@@ -153,7 +325,7 @@
             </div>
 
             <div class="programme-card reveal">
-              <div class="programme-icon" role="img" aria-label="Learning and advocacy training">🧠</div>
+              <div class="programme-icon" role="img" aria-label="Learning and advocacy training"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M18 34h12M19 39h10M24 7a12 12 0 0 0-7 22c2 1 3 3 3 5h8c0-2 1-4 3-5A12 12 0 0 0 24 7Z"/><path d="M24 2v2M8 9l3 3M40 9l-3 3M5 23h4M39 23h4"/></svg></div>
               <h4>Building confidence, knowledge and advocacy skills</h4>
               <p>Thirty women and girls with disabilities received training in advocacy, rights and policy engagement.</p>
               <div class="programme-extra" hidden><p>The training provided participants with practical knowledge and accessible learning approaches. Participants demonstrated greater confidence and willingness to speak about issues affecting them and engage with community structures.</p></div>
@@ -161,7 +333,7 @@
             </div>
 
             <div class="programme-card reveal">
-              <div class="programme-icon" role="img" aria-label="Community conversation">🗣️</div>
+              <div class="programme-icon" role="img" aria-label="Community conversation"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 9h34v23H23l-10 8v-8H7z"/><path d="M16 20h.01M24 20h.01M32 20h.01" stroke-width="4" stroke-linecap="round"/></svg></div>
               <h4>Bringing communities and leaders into the conversation</h4>
               <p>Community leaders and male counterparts were engaged to support disability inclusion and gender equality.</p>
               <div class="programme-extra" hidden><p>CAPDI engaged <strong>34 traditional and community leaders</strong>, exceeding the original target of 28, and <strong>40 male counterparts</strong> to promote greater understanding of disability inclusion, gender equality and participation.</p></div>
@@ -169,7 +341,7 @@
             </div>
 
             <div class="programme-card reveal">
-              <div class="programme-icon" role="img" aria-label="Working with government and service providers">♿</div>
+              <div class="programme-icon" role="img" aria-label="Working with government and service providers"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="23" cy="8" r="3"/><path d="M21 15h8l3 9h8M23 15l-2 12h10l4 7M14 25a13 13 0 1 0 22 10"/></svg></div>
               <h4>Strengthening engagement with government</h4>
               <p>Dialogue platforms and accessibility audits helped communities engage government and service providers.</p>
               <div class="programme-extra" hidden><p>CAPDI engaged <strong>20 government officials and service providers</strong>, established <strong>5 dialogue platforms</strong>, and conducted <strong>10 accessibility audits of public facilities</strong>.</p></div>
@@ -177,7 +349,7 @@
             </div>
 
             <div class="programme-card reveal">
-              <div class="programme-icon" role="img" aria-label="Inclusive community awareness">📢</div>
+              <div class="programme-icon" role="img" aria-label="Inclusive community awareness"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 21h8l20-10v26L16 27H8a3 3 0 0 1 0-6ZM16 27l4 12h8l-5-9"/><path d="M40 18v12M44 21v6"/></svg></div>
               <h4>Taking disability inclusion to communities</h4>
               <p>Public awareness activities reached approximately 2,500 people in targeted communities.</p>
               <div class="programme-extra" hidden><p>The activities raised awareness about the rights and needs of women and girls with disabilities. CAPDI also developed and distributed <strong>30 inclusive policy implementation toolkits and guidelines</strong>.</p></div>
@@ -185,7 +357,7 @@
             </div>
 
             <div class="programme-card reveal">
-              <div class="programme-icon" role="img" aria-label="Tracking progress together">✅</div>
+              <div class="programme-icon" role="img" aria-label="Tracking progress together"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 39V25M19 39V17M30 39V9M41 39V21M6 39h38"/><path d="m8 17 10-7 10 5 12-9"/></svg></div>
               <h4>Strengthening accountability and participation</h4>
               <p>Monitoring activities created practical ways for communities to engage duty-bearers and track progress.</p>
               <div class="programme-extra" hidden><p>CAPDI engaged <strong>40 members of the District Executive Committee</strong>, developed a service-provider scorecard, and conducted three project site visits to encourage accountability among service providers.</p></div>
@@ -193,7 +365,7 @@
             </div>
 
             <div class="programme-card reveal">
-              <div class="programme-icon" role="img" aria-label="CAPDI team working together">🛠️</div>
+              <div class="programme-icon" role="img" aria-label="CAPDI team working together"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M27 10a11 11 0 0 0 12 14L23 40a5 5 0 0 1-7-7l16-16A11 11 0 0 0 27 10Z"/><path d="m30 7 11 11"/></svg></div>
               <h4>Strengthening CAPDI’s capacity</h4>
               <p>CAPDI improved its organisational capacity to continue disability-inclusive advocacy beyond the project.</p>
               <div class="programme-extra" hidden><p><strong>Ten CAPDI staff</strong> received training in monitoring and evaluation and resource mobilisation. The organisation also improved its website, developed advocacy materials and procured essential office equipment.</p></div>
@@ -201,7 +373,7 @@
             </div>
 
             <div class="programme-card reveal">
-              <div class="programme-icon" role="img" aria-label="Overcoming barriers together">🚲</div>
+              <div class="programme-icon" role="img" aria-label="Overcoming barriers together"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="12" cy="33" r="8"/><circle cx="36" cy="33" r="8"/><path d="m12 33 8-15 9 15H12l8-15h10l6 15M23 14h6M18 18h-4"/></svg></div>
               <h4>Turning challenges into opportunities</h4>
               <p>CAPDI worked with families and local leaders to overcome participation and transport barriers.</p>
               <div class="programme-extra" hidden><p>When some families resisted women’s participation, CAPDI engaged the Area Development Committee Chairperson to explain the training and emphasise participants’ capabilities and rights. Transport support, including local bicycle operators, helped participants travel safely from remote communities.</p></div>
@@ -209,7 +381,7 @@
             </div>
 
             <div class="programme-card reveal">
-              <div class="programme-icon" role="img" aria-label="Participants sharing ideas">👥</div>
+              <div class="programme-icon" role="img" aria-label="Participants sharing ideas"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="18" cy="16" r="6"/><path d="M6 39v-4a12 12 0 0 1 24 0v4z"/><circle cx="34" cy="18" r="5"/><path d="M32 28a9 9 0 0 1 10 9v2h-7"/></svg></div>
               <h4>What participants gained</h4>
               <p>Participants gained rights knowledge, confidence, advocacy skills and more opportunities to engage decision-makers.</p>
               <div class="programme-extra" hidden><p>Through training, dialogue and community engagement, participants gained:</p><ul><li>Clear understanding of their rights and legal protections.</li><li>Increased confidence to speak about issues affecting them.</li><li>Greater willingness to engage community and government structures.</li><li>Improved advocacy and mobilisation skills.</li><li>More opportunities to participate in dialogue with decision-makers.</li></ul></div>
@@ -217,7 +389,7 @@
             </div>
 
             <div class="programme-card reveal">
-              <div class="programme-icon" role="img" aria-label="A strong foundation for inclusion">🌱</div>
+              <div class="programme-icon" role="img" aria-label="A strong foundation for inclusion"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 41V21M24 28C12 28 8 21 9 10c11-1 18 4 15 18ZM24 33c0-12 7-19 18-18 1 11-5 18-18 18Z"/></svg></div>
               <h4>A foundation for sustained inclusion</h4>
               <p>The project amplified the voices of women and girls with disabilities and created a foundation for sustained inclusion.</p>
               <div class="programme-extra" hidden><p>The Nsanje experience demonstrates that when women and girls with disabilities receive appropriate information, accessibility and supportive platforms, they are willing and able to participate in advocacy. CAPDI has strengthened its capacity for future work on gender equality, disability inclusion and the rights of women and girls with disabilities.</p></div>
@@ -234,6 +406,14 @@
         <div>Caring for persons with disabilities</div>
       </div>
     </footer>
+
+    <dialog class="programme-details-dialog" id="programme-details-dialog" aria-labelledby="programme-details-title">
+      <div class="programme-details-card">
+        <button class="programme-details-close" type="button" aria-label="Close programme details" autofocus>×</button>
+        <h2 id="programme-details-title"></h2>
+        <div class="programme-details-content"></div>
+      </div>
+    </dialog>
 
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
     <script>
@@ -257,19 +437,61 @@
           }
         });
 
+        const detailsDialog = document.getElementById('programme-details-dialog');
+        const detailsTitle = document.getElementById('programme-details-title');
+        const detailsContent = detailsDialog.querySelector('.programme-details-content');
+        const closeDetailsButton = detailsDialog.querySelector('.programme-details-close');
+        let activeProgrammeButton = null;
+
         document.querySelectorAll('.programme-toggle').forEach(function(button) {
+          button.setAttribute('aria-haspopup', 'dialog');
+          button.setAttribute('aria-controls', detailsDialog.id);
           button.addEventListener('click', function() {
             const card = button.closest('.programme-card');
             const extra = card ? card.querySelector('.programme-extra') : null;
-            if (!extra) {
+            const heading = card ? card.querySelector('h4') : null;
+            if (!extra || !heading) {
               return;
             }
 
-            const isExpanded = button.getAttribute('aria-expanded') === 'true';
-            button.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
-            button.textContent = isExpanded ? 'Read more' : 'Read less';
-            extra.hidden = isExpanded;
+            const details = extra.cloneNode(true);
+            details.hidden = false;
+            detailsTitle.textContent = heading.textContent;
+            detailsContent.replaceChildren(details);
+            activeProgrammeButton = button;
+            button.setAttribute('aria-expanded', 'true');
+            detailsDialog.showModal();
           });
+        });
+
+        closeDetailsButton.addEventListener('click', function() {
+          detailsDialog.close();
+        });
+
+        detailsDialog.addEventListener('click', function(event) {
+          if (event.target === detailsDialog) {
+            detailsDialog.close();
+          }
+        });
+
+        detailsDialog.addEventListener('cancel', function(event) {
+          event.preventDefault();
+          detailsDialog.close();
+        });
+
+        detailsDialog.addEventListener('keydown', function(event) {
+          if (event.key === 'Escape') {
+            event.preventDefault();
+            detailsDialog.close();
+          }
+        });
+
+        detailsDialog.addEventListener('close', function() {
+          if (activeProgrammeButton) {
+            activeProgrammeButton.setAttribute('aria-expanded', 'false');
+            activeProgrammeButton.focus();
+            activeProgrammeButton = null;
+          }
         });
       });
     </script>
